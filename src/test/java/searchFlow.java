@@ -40,13 +40,8 @@ public class searchFlow {
             optionsnew.get(13).click();
             WebDriverWait waitn = new WebDriverWait(driver, Duration.ofSeconds(10));
             By buttonLocator = By.xpath("(//*[@class='kupos-button_kupos_button__MM3z5 kupos-button'])[2]");
-
-        // Wait for the button to be clickable
-           WebElement button = waitn.until(ExpectedConditions.elementToBeClickable(buttonLocator));
-
-
-// Click using JavaScript
-        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", button);
+            WebElement button = waitn.until(ExpectedConditions.elementToBeClickable(buttonLocator));
+            ((JavascriptExecutor) driver).executeScript("arguments[0].click();", button);
 
 
     }

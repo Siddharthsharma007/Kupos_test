@@ -28,16 +28,13 @@ public class searchFlow {
             dropdown.click();
 
             List<WebElement> options = dropdown.findElements(By.xpath("//div[@class='auto-suggestions font10 scroll-style ']//a"));
-            for (WebElement option : options) {
-            if (option.getText().contains("Plazuela Buin")) {
-                option.click();
-                break;
-            }
-        }
+            options.get(1).click();
 
             List<WebElement> optionsnew = dropdown.findElements(By.xpath("//div[@class='index_coach_table__zXLYy coach-table light-text']//ul/li"));
             System.out.println("Total options: " + optionsnew.size());
-            optionsnew.get(13).click();
+            ((JavascriptExecutor)driver).executeScript("window.scrollTo({ down: 300, behavior: 'smooth' })");
+            Thread.sleep(10);
+            optionsnew.get(19).click();
             WebDriverWait waitn = new WebDriverWait(driver, Duration.ofSeconds(10));
             By buttonLocator = By.xpath("(//*[@class='kupos-button_kupos_button__MM3z5 kupos-button'])[2]");
             WebElement button = waitn.until(ExpectedConditions.elementToBeClickable(buttonLocator));
